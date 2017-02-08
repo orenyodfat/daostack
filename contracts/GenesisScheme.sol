@@ -2,6 +2,30 @@ pragma solidity ^0.4.7;
 import './controller/Controller.sol';
 import "./SimpleVoteInterface.sol";
 
+
+contract GenesisGlobalConstraint is GlobalConstraintInterface {
+    Controller public controller;
+    
+    function setController( Controller _controller ) returns(bool) {
+        controller = _controller;    
+    }
+        
+    function pre( address _scheme, bytes _param ) returns(bool) { return true; }
+    function post( address _scheme, bytes _param ) returns(bool) {
+        bytes memory unregisterSchemeString = "unregisterScheme";
+        
+        if( _param.length != unregisterSchemeString.length ) return true;
+        for( uint i = 0 ; i < _param.length ; i++ ) {
+            if( _param[i] != unregisterSchemeString[i] ) return true;
+        }
+        
+        if( ! controller.schemes(_scheme) ) return false;
+        
+        return true;
+    }
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////
 
 
@@ -23,7 +47,9 @@ contract GenesisScheme {
                             int[] _reputationAmount,
                             SimpleVoteInterface _simpleVote ) {
         
-        controller = new Controller( tokenName, tokenSymbol, this);
+        GenesisGlobalConstraint globalContraints = new GenesisGlobalConstraint();
+        controller = new Controller( tokenName, tokenSymbol, this, globalContraints );
+        globalContraints.setController(controller);
         simpleVote = _simpleVote;
         simpleVote.setOwner(this);        
         simpleVote.setReputationSystem(controller.nativeReputation());
