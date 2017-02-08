@@ -16,6 +16,9 @@ contract ActionInterface {
 
 
 contract Controller { // is Ownable ? why?
+
+    string constant public version = "0.0.1";
+
     mapping(address=>bool) public schemes;
     // TODO - should be iterable? UI can use events
 

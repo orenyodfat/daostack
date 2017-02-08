@@ -34,17 +34,20 @@ contract GenesisScheme {
     SimpleVoteInterface public simpleVote;
     
     struct Founder {
-        int tokens;
-        int reputation;
+        int128 tokens;
+        int128 reputation;
     }
             
     mapping(address=>Founder) founders;
+    
+    //event CollectFoundersShare( address indexed _founder, int _reputation, int _tokens );
+    //event Vote( address _voter, bool _yes, address _scheme ); 
         
     function GenesisScheme( string tokenName,
                             string tokenSymbol,
                             address[] _founders,
-                            int[] _tokenAmount,
-                            int[] _reputationAmount,
+                            int128[] _tokenAmount,
+                            int128[] _reputationAmount,
                             SimpleVoteInterface _simpleVote ) {
         
         GenesisGlobalConstraint globalContraints = new GenesisGlobalConstraint();
@@ -64,11 +67,13 @@ contract GenesisScheme {
     }
     
     function collectFoundersShare( ) returns(bool) {
-        // TODO - event
+        
         Founder memory founder = founders[msg.sender];
         
-        if( ! controller.mintTokens( founder.tokens, msg.sender ) ) throw;
-        if( ! controller.mintReputation( founder.reputation, msg.sender ) ) throw;
+        if( ! controller.mintTokens( int(founder.tokens), msg.sender ) ) throw;
+        if( ! controller.mintReputation( int(founder.reputation), msg.sender ) ) throw;
+
+        //CollectFoundersShare( msg.sender, int(founder.reputation), int(founder.tokens) );
         
         delete founders[msg.sender];
         
@@ -81,6 +86,8 @@ contract GenesisScheme {
     }
             
     function voteScheme( address _scheme, bool _yes ) returns(bool) {
+        //Vote( msg.sender, _yes, _scheme );    
+    
         if( ! simpleVote.voteProposal(sha3(_scheme),_yes, msg.sender) ) return false;
         if( simpleVote.voteResults(sha3(_scheme)) ) {
             if( ! simpleVote.closeProposal(sha3(_scheme) ) ) throw;
