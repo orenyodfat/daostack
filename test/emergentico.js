@@ -5,9 +5,9 @@ const EmergentICO = artifacts.require("./EmergentICO.sol");
 
 // Vars
 let accounts, org, newICO;
-let admin, target, startBlock,clearancePeriodDuration, minDonation, initialRate, rateFractionNumerator, rateFractionDenominator, batchSize;
+let admin, target, startBlock, clearancePeriodDuration, minDonation, initialRate, rateFractionNumerator, rateFractionDenominator, batchSize;
 
-const setupEmergentICO = async function(){
+const setupEmergentICO = async function () {
 
   accounts = web3.eth.accounts;
 
@@ -15,7 +15,7 @@ const setupEmergentICO = async function(){
   target = accounts[9];
   startBlock = web3.eth.blockNumber;
   clearancePeriodDuration = 10;
-  minDonation =  web3.toWei(1, "ether");
+  minDonation = web3.toWei(1, "ether");
   initialRate = 100;
   rateFractionNumerator = 99;
   rateFractionDenominator = 100;
@@ -39,14 +39,35 @@ const setupEmergentICO = async function(){
 
 };
 
-contract("EmergentICO", function(accounts){
-  before(function() {
+contract("EmergentICO", function (accounts) {
+  before(function () {
     helpers.etherForEveryone();
   });
 
-  // it("should log the LogDonationReceived event on donating", async function() {
-  //
-  // });
+  it("log LogDonationReceived on donating", async function () {
+    await setupEmergentICO();
+
+    const donationInWei = web3.toWei(5, "ether");
+    const targetOriginalBalance = await web3.eth.getBalance(target);
+
+    const currentPeriod = (await newICO.currentClearancePeriod()).toNumber();
+
+    const tx = await newICO.donate(
+      accounts[2],
+      0,
+      { from: accounts[1], value: donationInWei }
+    );
+
+    assert.equal(tx.logs.length, 1);
+    assert.equal(tx.logs[0].event, "LogDonationReceived");
+    assert.equal(tx.logs[0].args._donor, accounts[1]);
+    assert.equal(tx.logs[0].args._beneficiary, accounts[2]);
+    assert.equal(tx.logs[0].args._value, donationInWei);
+    assert.equal(tx.logs[0].args._minRate, 0);
+
+    assert(tx.logs[0].args._donationId, (await newICO.donationCounter()).toNumber() - 1);
+    assert(tx.logs[0].args._periodId, currentPeriod);
+  });
   // it("should log the LogPeriodAverageComputed event on canceling a porposal", async function() {
   //
   // });
@@ -68,22 +89,22 @@ contract("EmergentICO", function(accounts){
   //   assert(Math.abs(batch17Rate - Number (await newICO.rate18Digits(17)))/batch7Rate < 10**(-8));
   // });
   //
-  it("Check average rate function", async function(){
+  it("Check average rate function", async function () {
     await setupEmergentICO();
 
-    const frac = rateFractionNumerator/rateFractionDenominator;
+    const frac = rateFractionNumerator / rateFractionDenominator;
     const start = 31;
     const end = 85;
 
-    const averageRate = initialRate*(9*frac + 20*frac**2 + 20*frac**3 + 5*frac**4)/(end-start);
+    const averageRate = initialRate * (9 * frac + 20 * frac ** 2 + 20 * frac ** 3 + 5 * frac ** 4) / (end - start);
     const averageRate18Digits = Number(web3.toWei(averageRate, "ether"));
     const averageRateCalc18Digits = Number(await newICO.averageRateCalc18Digits(web3.toWei(start, "ether"), web3.toWei(end, "ether")));
 
     // Checking rate is the same up to rounding error:
-    assert(Math.abs(averageRate18Digits - averageRateCalc18Digits)/averageRate18Digits < 10**(-8));
+    assert(Math.abs(averageRate18Digits - averageRateCalc18Digits) / averageRate18Digits < 10 ** (-8));
   });
 
-  it("Only admin can halt and resume the ICO", async function(){
+  it("Only admin can halt and resume the ICO", async function () {
 
     await setupEmergentICO();
 
@@ -96,10 +117,10 @@ contract("EmergentICO", function(accounts){
 
     // only the admin can halt the ICO
     try {
-        await newICO.haltICO({from: accounts[1]});
-        throw 'an error'; // make sure that an error is thrown
-    } catch(error) {
-        helpers.assertVMException(error);
+      await newICO.haltICO({ from: accounts[1] });
+      throw 'an error'; // make sure that an error is thrown
+    } catch (error) {
+      helpers.assertVMException(error);
     }
     // ICO should be still active - The halt request sent from non admin account
     assert.equal(await newICO.isActive(), true);
@@ -108,16 +129,16 @@ contract("EmergentICO", function(accounts){
     await newICO.haltICO();
     // only the admin can resume the ICO
     try {
-        await newICO.resumeICO({from: accounts[1]});
-        throw 'an error'; // make sure that an error is thrown
-    } catch(error) {
-        helpers.assertVMException(error);
+      await newICO.resumeICO({ from: accounts[1] });
+      throw 'an error'; // make sure that an error is thrown
+    } catch (error) {
+      helpers.assertVMException(error);
     }
     // ICO should still be halted:
     assert.equal(await newICO.isActive(), false);
   });
 
-  it("Try donating when ICO is halted", async function(){
+  it("Try donating when ICO is halted", async function () {
     await setupEmergentICO();
 
     // Halting the ICO:
@@ -131,8 +152,8 @@ contract("EmergentICO", function(accounts){
         value: web3.toWei(2, "ether"),
       });
       throw 'an error'; // make sure that an error is thrown
-    } catch(error) {
-        helpers.assertVMException(error);
+    } catch (error) {
+      helpers.assertVMException(error);
     }
 
     // Checking contract variables:
@@ -140,7 +161,7 @@ contract("EmergentICO", function(accounts){
     assert.equal(await newICO.donationCounter(), 0);
   });
 
-  it("Try donating below minimum", async function(){
+  it("Try donating below minimum", async function () {
     await setupEmergentICO();
 
 
@@ -152,8 +173,8 @@ contract("EmergentICO", function(accounts){
         value: web3.toWei(0.5, "ether"),
       });
       throw 'an error'; // make sure that an error is thrown
-    } catch(error) {
-        helpers.assertVMException(error);
+    } catch (error) {
+      helpers.assertVMException(error);
     }
 
     // Checking contract variables:
@@ -161,7 +182,7 @@ contract("EmergentICO", function(accounts){
     assert.equal(await newICO.donationCounter(), 0);
   });
 
-  it("Single regular donation", async function(){
+  it("Single regular donation", async function () {
     await setupEmergentICO();
 
     const donationInWei = web3.toWei(2, "ether");
@@ -181,14 +202,14 @@ contract("EmergentICO", function(accounts){
     assert.equal(Number(await web3.eth.getBalance(target)), Number(targetOriginalBalance) + Number(donationInWei));
   });
 
-  it("Single donation with limit", async function(){
+  it("Single donation with limit", async function () {
     await setupEmergentICO();
 
     const donationInWei = web3.toWei(2, "ether");
     const targetOriginalBalance = await web3.eth.getBalance(target);
 
     // Donating:
-    await newICO.donate(accounts[2], web3.toWei(5,"ether"), {from: accounts[1], value: donationInWei});
+    await newICO.donate(accounts[2], web3.toWei(5, "ether"), { from: accounts[1], value: donationInWei });
 
     // Checking contract variables:
     assert.equal(Number(await newICO.totalReceived()), donationInWei);
@@ -197,27 +218,27 @@ contract("EmergentICO", function(accounts){
     assert.equal(await Number(web3.eth.getBalance(target)), Number(targetOriginalBalance));
   });
 
-  it("Full scenario 1", async function(){
+  it("Full scenario 1", async function () {
     await setupEmergentICO();
 
     // Original data:
     const period = Number(await newICO.currentClearancePeriod());
 
     // Donating:
-    await newICO.donate(accounts[1], 0, {from: accounts[1], value: web3.toWei(15, "ether")});
-    await newICO.donate(accounts[3], web3.toWei(99.95,"ether"), {from: accounts[3], value: web3.toWei(4, "ether")});
-    await newICO.donate(accounts[4], web3.toWei(99,"ether"), {from: accounts[4], value: web3.toWei(12, "ether")});
-    await newICO.donate(accounts[5], web3.toWei(98.5,"ether"), {from: accounts[5], value: web3.toWei(11, "ether")});
+    await newICO.donate(accounts[1], 0, { from: accounts[1], value: web3.toWei(15, "ether") });
+    await newICO.donate(accounts[3], web3.toWei(99.95, "ether"), { from: accounts[3], value: web3.toWei(4, "ether") });
+    await newICO.donate(accounts[4], web3.toWei(99, "ether"), { from: accounts[4], value: web3.toWei(12, "ether") });
+    await newICO.donate(accounts[5], web3.toWei(98.5, "ether"), { from: accounts[5], value: web3.toWei(11, "ether") });
 
     // console.log(await newICO.averageRateCalc18Digits(web3.toWei(0, "ether"), web3.toWei(42, "ether")));
 
     // Mining blocks to end period:
-    while(Number(await newICO.currentClearancePeriod()) == period) {
-        await web3.eth.sendTransaction({
-          from: accounts[0],
-          to: accounts[1],
-          value: web3.toWei(0.1,"ether")
-        });
+    while (Number(await newICO.currentClearancePeriod()) == period) {
+      await web3.eth.sendTransaction({
+        from: accounts[0],
+        to: accounts[1],
+        value: web3.toWei(0.1, "ether")
+      });
     }
 
     // Checking contract variables:
@@ -226,23 +247,23 @@ contract("EmergentICO", function(accounts){
     assert.equal(await newICO.donationCounter(), 4);
 
     // Compute all previous periods, and initialize current period:
-    for (let cnt=0; cnt<period; cnt++) {
+    for (let cnt = 0; cnt < period; cnt++) {
       await newICO.setAverageAndTest(cnt, web3.toWei(initialRate), 0);
     }
     const periodInit = await newICO.getIsPeriodInitialized(period);
     assert.equal(periodInit, true);
 
     // Try a wrong average:
-    const avgWrong = await newICO.averageRateCalc18Digits(0, web3.toWei(39,"ether"));
+    const avgWrong = await newICO.averageRateCalc18Digits(0, web3.toWei(39, "ether"));
     await newICO.setAverageAndTest(period, avgWrong, 3);
-    const periodPlus1InitFalse = await newICO.getIsPeriodInitialized(period+1);
+    const periodPlus1InitFalse = await newICO.getIsPeriodInitialized(period + 1);
     assert.equal(periodPlus1InitFalse, false);
 
     // Compute average and let contract test it:
-    const avg = await newICO.averageRateCalc18Digits(0, web3.toWei(38,"ether"));
+    const avg = await newICO.averageRateCalc18Digits(0, web3.toWei(38, "ether"));
     await newICO.setAverageAndTest(period, avg, 1);
     await newICO.checkAverage(period, 2);
-    const periodPlus1Init = await newICO.getIsPeriodInitialized(period+1);
+    const periodPlus1Init = await newICO.getIsPeriodInitialized(period + 1);
     assert.equal(periodPlus1Init, true);
 
     // Retrieve ether:
@@ -250,28 +271,28 @@ contract("EmergentICO", function(accounts){
     let account3EthBefore = await web3.eth.getBalance(accounts[3]);
     const account3BeforePlusDonation = Number(account3EthBefore) + Number(web3.toWei(4));
     let tx = await newICO.collectMine(1, { from: accounts[3], gasPrice: gasPrice });
-    let gasCost = Number(tx.receipt.gasUsed)*gasPrice;
+    let gasCost = Number(tx.receipt.gasUsed) * gasPrice;
     let account3EthAfter = await web3.eth.getBalance(accounts[3]);
     let account3AfterPlusGas = Number(account3EthAfter) + Number(gasCost);
-    assert(Math.abs(account3BeforePlusDonation - account3AfterPlusGas)/account3AfterPlusGas < 10**(-8));
+    assert(Math.abs(account3BeforePlusDonation - account3AfterPlusGas) / account3AfterPlusGas < 10 ** (-8));
 
     // Try to retrieve ether twice:
     account3EthBefore = await web3.eth.getBalance(accounts[3]);
     tx = await newICO.collectMine(1, { from: accounts[3], gasPrice: gasPrice });
-    gasCost = Number(tx.receipt.gasUsed)*gasPrice;
+    gasCost = Number(tx.receipt.gasUsed) * gasPrice;
     account3EthAfter = await web3.eth.getBalance(accounts[3]);
     account3AfterPlusGas = Number(account3EthAfter) + Number(gasCost);
-    assert(Math.abs(Number(account3EthBefore) - account3AfterPlusGas)/account3AfterPlusGas < 10**(-8));
+    assert(Math.abs(Number(account3EthBefore) - account3AfterPlusGas) / account3AfterPlusGas < 10 ** (-8));
 
-     // Collect tokens:
-     const averageRate18Digits = Number(await newICO.averageRateCalc18Digits(0, web3.toWei(38)));
-     const tokensToBeCollected = averageRate18Digits*11;
-     const token = org.token;
-     const initBalance5 = await token.balanceOf(accounts[5]);
-     await newICO.collectMine(3, { from: accounts[5] });
-     const balance5 = await token.balanceOf(accounts[5]);
-     const collectedTokens = Number(balance5) - Number(initBalance5);
-     assert(Math.abs(collectedTokens - tokensToBeCollected)/tokensToBeCollected < 10**(-8));
+    // Collect tokens:
+    const averageRate18Digits = Number(await newICO.averageRateCalc18Digits(0, web3.toWei(38)));
+    const tokensToBeCollected = averageRate18Digits * 11;
+    const token = org.token;
+    const initBalance5 = await token.balanceOf(accounts[5]);
+    await newICO.collectMine(3, { from: accounts[5] });
+    const balance5 = await token.balanceOf(accounts[5]);
+    const collectedTokens = Number(balance5) - Number(initBalance5);
+    assert(Math.abs(collectedTokens - tokensToBeCollected) / tokensToBeCollected < 10 ** (-8));
   });
 
   // it("Full scenario 2", async function() {
