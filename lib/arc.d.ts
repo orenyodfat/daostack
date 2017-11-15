@@ -1,4 +1,4 @@
-import TruffleContract from 'truffle-contract';
+import { TruffleContract } from 'truffle-contract';
 import * as Web3 from "web3";
 
 declare module 'daostack-arc' {

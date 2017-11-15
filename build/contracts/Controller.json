@@ -1,0 +1,1676 @@
+{
+  "contract_name": "Controller",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "name": "_beneficiary",
+          "type": "address"
+        }
+      ],
+      "name": "mintTokens",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_amount",
+          "type": "int256"
+        },
+        {
+          "name": "_beneficiary",
+          "type": "address"
+        }
+      ],
+      "name": "mintReputation",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "newController",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_globalConstraint",
+          "type": "address"
+        },
+        {
+          "name": "_params",
+          "type": "bytes32"
+        }
+      ],
+      "name": "addGlobalConstraint",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_scheme",
+          "type": "address"
+        }
+      ],
+      "name": "getSchemeParameters",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_globalConstraint",
+          "type": "address"
+        }
+      ],
+      "name": "removeGlobalConstraint",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "version",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "avatar",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_scheme",
+          "type": "address"
+        }
+      ],
+      "name": "unregisterScheme",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "globalConstraints",
+      "outputs": [
+        {
+          "name": "gcAddress",
+          "type": "address"
+        },
+        {
+          "name": "params",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "unregisterSelf",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_action",
+          "type": "address"
+        },
+        {
+          "name": "_params",
+          "type": "bytes32[]"
+        }
+      ],
+      "name": "genericAction",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_externalToken",
+          "type": "address"
+        },
+        {
+          "name": "_spender",
+          "type": "address"
+        },
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "externalTokenApprove",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_scheme",
+          "type": "address"
+        }
+      ],
+      "name": "isSchemeRegistered",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "nativeReputation",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_scheme",
+          "type": "address"
+        }
+      ],
+      "name": "getSchemePermissions",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_scheme",
+          "type": "address"
+        },
+        {
+          "name": "_paramsHash",
+          "type": "bytes32"
+        },
+        {
+          "name": "_permissions",
+          "type": "bytes4"
+        }
+      ],
+      "name": "registerScheme",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_externalToken",
+          "type": "address"
+        },
+        {
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "externalTokenTransferFrom",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_newController",
+          "type": "address"
+        }
+      ],
+      "name": "upgradeController",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_amountInWei",
+          "type": "uint256"
+        },
+        {
+          "name": "_to",
+          "type": "address"
+        }
+      ],
+      "name": "sendEther",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "globalConstraintsCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_externalToken",
+          "type": "address"
+        },
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "externalTokenTransfer",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "schemes",
+      "outputs": [
+        {
+          "name": "paramsHash",
+          "type": "bytes32"
+        },
+        {
+          "name": "permissions",
+          "type": "bytes4"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "nativeToken",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_avatar",
+          "type": "address"
+        },
+        {
+          "name": "_nativeToken",
+          "type": "address"
+        },
+        {
+          "name": "_nativeReputation",
+          "type": "address"
+        },
+        {
+          "name": "_schemes",
+          "type": "address[]"
+        },
+        {
+          "name": "_params",
+          "type": "bytes32[]"
+        },
+        {
+          "name": "_permissions",
+          "type": "bytes4[]"
+        }
+      ],
+      "payable": false,
+      "type": "constructor"
+    },
+    {
+      "payable": false,
+      "type": "fallback"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "_beneficiary",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_amount",
+          "type": "int256"
+        }
+      ],
+      "name": "MintReputation",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "_beneficiary",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "MintTokens",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "_scheme",
+          "type": "address"
+        }
+      ],
+      "name": "RegisterScheme",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "_scheme",
+          "type": "address"
+        }
+      ],
+      "name": "UnregisterScheme",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "_action",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_params",
+          "type": "bytes32[]"
+        }
+      ],
+      "name": "GenericAction",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_amountInWei",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "name": "_to",
+          "type": "address"
+        }
+      ],
+      "name": "SendEther",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "_externalToken",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "ExternalTokenTransfer",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "_externalToken",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "ExternalTokenTransferFrom",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "_externalToken",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_spender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "ExternalTokenApprove",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "_globalconstraint",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_params",
+          "type": "bytes32"
+        }
+      ],
+      "name": "LogAddGlobalConstraint",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x6060604052341561000f57600080fd5b604051611ada380380611ada8339810160405280805191906020018051919060200180519190602001805182019190602001805182019190602001805190910190505b60018054600160a060020a03808916600160a060020a03199283161790925560028054888416908316179055600380549287169290911691909117905560005b83518110156101bd578281815181106100a757fe5b906020019060200201516000808684815181106100c057fe5b90602001906020020151600160a060020a031681526020810191909152604001600020558181815181106100f057fe5b9060200190602002015160008086848151811061010957fe5b90602001906020020151600160a060020a031681526020810191909152604001600020600101805463ffffffff19167c010000000000000000000000000000000000000000000000000000000090920491909117905583818151811061016b57fe5b90602001906020020151600160a060020a031633600160a060020a03167f546816e99403df442acb68ef69562682a50762c20a3fb6b472f7af9923736cfc60405160405180910390a35b600101610092565b5b505050505050505b611905806101d56000396000f300606060405236156101225763ffffffff60e060020a60003504166310c5b328811461013557806318e236e41461016b5780633a02263c146101a157806346a4869c146101d057806346e361b714610206578063488b38141461023757806354fd4d501461026a5780635aef7de6146102f5578063653915e51461032457806365ab1ae8146103575780636bafaa591461038f5780636ce15a54146103b657806379c6ad9e1461042757806381d064c41461046357806389ae1c90146104965780639fe02726146104c5578063a34abaa814610501578063b756d5a214610544578063b9c2ee8214610586578063cb16d4a2146105b9578063d5210f60146105ef578063dab0efff14610614578063db6149ce14610650578063e1758bd814610691575b341561012d57600080fd5b5b600080fd5b005b341561014057600080fd5b610157600435600160a060020a03602435166106c0565b604051901515815260200160405180910390f35b341561017657600080fd5b610157600435600160a060020a03602435166107e4565b604051901515815260200160405180910390f35b34156101ac57600080fd5b6101b4610908565b604051600160a060020a03909116815260200160405180910390f35b34156101db57600080fd5b610157600160a060020a0360043516602435610917565b604051901515815260200160405180910390f35b341561021157600080fd5b610225600160a060020a0360043516610a30565b60405190815260200160405180910390f35b341561024257600080fd5b610157600160a060020a0360043516610a4f565b604051901515815260200160405180910390f35b341561027557600080fd5b61027d610b4f565b60405160208082528190810183818151815260200191508051906020019080838360005b838110156102ba5780820151818401525b6020016102a1565b50505050905090810190601f1680156102e75780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561030057600080fd5b6101b4610b86565b604051600160a060020a03909116815260200160405180910390f35b341561032f57600080fd5b610157600160a060020a0360043516610b95565b604051901515815260200160405180910390f35b341561036257600080fd5b61036d600435610cd9565b604051600160a060020a03909216825260208201526040908101905180910390f35b341561039a57600080fd5b610157610d11565b604051901515815260200160405180910390f35b34156103c157600080fd5b61015760048035600160a060020a0316906044602480359081019083013580602080820201604051908101604052809392919081815260200183836020028082843750949650610d4095505050505050565b604051901515815260200160405180910390f35b341561043257600080fd5b610157600160a060020a0360043581169060243516604435610ef3565b604051901515815260200160405180910390f35b341561046e57600080fd5b610157600160a060020a0360043516611036565b604051901515815260200160405180910390f35b34156104a157600080fd5b6101b461106a565b604051600160a060020a03909116815260200160405180910390f35b34156104d057600080fd5b6104e4600160a060020a0360043516611079565b604051600160e060020a0319909116815260200160405180910390f35b341561050c57600080fd5b610157600160a060020a0360043516602435600160e060020a0319604435166110a1565b604051901515815260200160405180910390f35b341561054f57600080fd5b610157600160a060020a0360043581169060243581169060443516606435611277565b604051901515815260200160405180910390f35b341561059157600080fd5b610157600160a060020a03600435166113ce565b604051901515815260200160405180910390f35b34156105c457600080fd5b610157600435600160a060020a03602435166115a4565b604051901515815260200160405180910390f35b34156105fa57600080fd5b6102256116c9565b60405190815260200160405180910390f35b341561061f57600080fd5b610157600160a060020a03600435811690602435166044356116d0565b604051901515815260200160405180910390f35b341561065b57600080fd5b61066f600160a060020a036004351661180c565b604051918252600160e060020a03191660208201526040908101905180910390f35b341561069c57600080fd5b6101b461182b565b604051600160a060020a03909116815260200160405180910390f35b600160a060020a03331660009081526020819052604081206001015460e060020a02600160e060020a03191615156106f757600080fd5b7f6d696e74546f6b656e730000000000000000000000000000000000000000000082600160a060020a031633600160a060020a03167f21f9c9a1a1f9a311a50f15fec5c1faa9e21fc9edf964f0fdecba5bd490484c5e8660405190815260200160405180910390a3600254600160a060020a03166340c10f19848660006040516020015260405160e060020a63ffffffff8516028152600160a060020a0390921660048301526024820152604401602060405180830381600087803b15156107be57600080fd5b6102c65a03f115156107cf57600080fd5b50505060405180519250505b5b505b92915050565b600160a060020a03331660009081526020819052604081206001015460e060020a02600160e060020a031916151561081b57600080fd5b7f6d696e7452657075746174696f6e00000000000000000000000000000000000082600160a060020a031633600160a060020a03167fb6ced7e295ffd06d19f45bd872b3bd3fd172b1ba53b17ce0543c276d06f5a4228660405190815260200160405180910390a3600354600160a060020a031663fd9bf3aa848660006040516020015260405160e060020a63ffffffff8516028152600160a060020a0390921660048301526024820152604401602060405180830381600087803b15156107be57600080fd5b6102c65a03f115156107cf57600080fd5b50505060405180519250505b5b505b92915050565b600454600160a060020a031681565b600061092161183a565b600160a060020a03331660009081526020819052604090206001015460e060020a027c04000000000000000000000000000000000000000000000000000000009081161461096e57600080fd5b600160a060020a03841681526020810183905260058054600181016109938382611851565b916000526020600020906002020160005b5082908151815473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03919091161781556020820151600190910155507f8fdb69e6f496c598f5c3e04a02081a6f5ab0096b70a94a75b6b6c61b1fe4c9f890508484604051600160a060020a03909216825260208201526040908101905180910390a1600191505b5b5092915050565b600160a060020a0381166000908152602081905260409020545b919050565b600160a060020a033316600090815260208190526040812060010154819060e060020a027c040000000000000000000000000000000000000000000000000000000090811614610a9e57600080fd5b5060005b600554811015610b475782600160a060020a0316600582815481101515610ac557fe5b906000526020600020906002020160005b5054600160a060020a03161415610b3e576000600582815481101515610af857fe5b906000526020600020906002020160005b50805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a039290921691909117905560019150610b47565b5b600101610aa2565b5b5b50919050565b60408051908101604052600581527f302e302e31000000000000000000000000000000000000000000000000000000602082015281565b600154600160a060020a031681565b600160a060020a03331660009081526020819052604081206001015460e060020a027c020000000000000000000000000000000000000000000000000000000090811614610be257600080fd5b33600160a060020a039081166000908152602081905260408082206001908101549386168352912001547f756e7265676973746572536368656d65000000000000000000000000000000009160e060020a908102199102167c0f000000000000000000000000000000000000000000000000000000001615610c6357600080fd5b82600160a060020a031633600160a060020a03167f10bb2cf04cb8b902a8e736d494f1a51003be6d4b16ef6fb95ce62c38445023bf60405160405180910390a3600160a060020a03831660009081526020819052604081209081556001908101805463ffffffff1916905591505b5b505b919050565b6005805482908110610ce757fe5b906000526020600020906002020160005b508054600190910154600160a060020a03909116915082565b600160a060020a03331660009081526020819052604081209081556001908101805463ffffffff191690555b90565b600160a060020a03331660009081526020819052604081206001015460e060020a02600160e060020a0319161515610d7757600080fd5b7f67656e65726963416374696f6e0000000000000000000000000000000000000083600160a060020a031633600160a060020a03167fa780f470f73c5b728f451407660985d55be1b49386ec1a65a0b20d09f12d32468560405160208082528190810183818151815260200191508051906020019060200280838360005b83811015610e0e5780820151818401525b602001610df5565b505050509050019250505060405180910390a3600154600160a060020a0316636ce15a5485856000604051602001526040518363ffffffff1660e060020a0281526004018083600160a060020a0316600160a060020a0316815260200180602001828103825283818151815260200191508051906020019060200280838360005b83811015610ea85780820151818401525b602001610e8f565b505050509050019350505050602060405180830381600087803b15156107be57600080fd5b6102c65a03f115156107cf57600080fd5b50505060405180519250505b5b505b92915050565b600160a060020a03331660009081526020819052604081206001015460e060020a02600160e060020a0319161515610f2a57600080fd5b7f65787465726e616c546f6b656e417070726f766500000000000000000000000084600160a060020a031633600160a060020a03167f5cda63dee3dca234a7ff99530838d4375718e5a398a4879f89119d92921fc6938686604051600160a060020a03909216825260208201526040908101905180910390a3600154600160a060020a03166379c6ad9e86868660006040516020015260405160e060020a63ffffffff8616028152600160a060020a0393841660048201529190921660248201526044810191909152606401602060405180830381600087803b151561100f57600080fd5b6102c65a03f1151561102057600080fd5b50505060405180519250505b5b505b9392505050565b600160a060020a03811660009081526020819052604090206001015460e060020a02600160e060020a03191615155b919050565b600354600160a060020a031681565b600160a060020a03811660009081526020819052604090206001015460e060020a025b919050565b60006110ab61183a565b600160a060020a03331660009081526020819052604090206001015460e060020a027c0200000000000000000000000000000000000000000000000000000000908116146110f857600080fd5b600160a060020a038516600090815260208190526040908190207f7265676973746572536368656d65000000000000000000000000000000000000918051908101604090815282548252600192830154600160e060020a031960e060020a918202166020808501918252600160a060020a03331660009081529081905292832090940154929550909291021990518618167c0f0000000000000000000000000000000000000000000000000000000016146111b257600080fd5b600160a060020a03331660009081526020818152604082206001015460e060020a021990840151167c0f00000000000000000000000000000000000000000000000000000000161461120357600080fd5b600160a060020a0386811660008181526020819052604090819020888155600101805463ffffffff191660e060020a890417905590913316907f546816e99403df442acb68ef69562682a50762c20a3fb6b472f7af9923736cfc905160405180910390a3600192505b5b505b509392505050565b600160a060020a03331660009081526020819052604081206001015460e060020a02600160e060020a03191615156112ae57600080fd5b7f65787465726e616c546f6b656e5472616e7366657246726f6d0000000000000085600160a060020a031633600160a060020a03167f283faba4b8dcfe263728666be500623fdf5ae89ac78e40952fe2493f918ed62c878787604051600160a060020a039384168152919092166020820152604080820192909252606001905180910390a3600154600160a060020a031663b756d5a28787878760006040516020015260405160e060020a63ffffffff8716028152600160a060020a0394851660048201529284166024840152921660448201526064810191909152608401602060405180830381600087803b15156113a657600080fd5b6102c65a03f115156113b757600080fd5b50505060405180519250505b5b505b949350505050565b600160a060020a03331660009081526020819052604081206001015460e060020a027c08000000000000000000000000000000000000000000000000000000009081161461141b57600080fd5b600454600160a060020a03161561143157600080fd5b600160a060020a038216151561144657600080fd5b6004805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03848116919091179091556001541663f2fde38b8360405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401600060405180830381600087803b15156114bb57600080fd5b6102c65a03f115156114cc57600080fd5b5050600254600160a060020a0316905063f2fde38b8360405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401600060405180830381600087803b151561152057600080fd5b6102c65a03f1151561153157600080fd5b5050600354600160a060020a0316905063f2fde38b8360405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401600060405180830381600087803b151561158557600080fd5b6102c65a03f1151561159657600080fd5b505050600190505b5b919050565b600160a060020a03331660009081526020819052604081206001015460e060020a02600160e060020a03191615156115db57600080fd5b7f73656e644574686572000000000000000000000000000000000000000000000082600160a060020a031633600160a060020a03167fda35e091786fbaaace32084910404a0e3a14f22a7645a4c3d0fec2c6731e3c348660405190815260200160405180910390a3600154600160a060020a031663cb16d4a2858560006040516020015260405160e060020a63ffffffff85160281526004810192909252600160a060020a03166024820152604401602060405180830381600087803b15156107be57600080fd5b6102c65a03f115156107cf57600080fd5b50505060405180519250505b5b505b92915050565b6005545b90565b600160a060020a03331660009081526020819052604081206001015460e060020a02600160e060020a031916151561170757600080fd5b7f65787465726e616c546f6b656e5472616e73666572000000000000000000000083600160a060020a031685600160a060020a031633600160a060020a03167fd4c08afec48fd2cbe49032dc89d3b388b7a4e4f0563a1fdccd73339beb025aa18660405190815260200160405180910390a4600154600160a060020a031663dab0efff86868660006040516020015260405160e060020a63ffffffff8616028152600160a060020a0393841660048201529190921660248201526044810191909152606401602060405180830381600087803b151561100f57600080fd5b6102c65a03f1151561102057600080fd5b50505060405180519250505b5b505b9392505050565b6000602081905290815260409020805460019091015460e060020a0282565b600254600160a060020a031681565b604080519081016040526000808252602082015290565b81548183558181151161187d5760020281600202836000526020600020918201910161187d919061189a565b5b505050565b604080519081016040526000808252602082015290565b610d3d91905b808211156118d257805473ffffffffffffffffffffffffffffffffffffffff19168155600060018201556002016118a0565b5090565b905600a165627a7a72305820ba41966054fabab4b759b56be267f110eb105a696f2a3975ff5d4e7d67c76a670029",
+  "networks": {
+    "1505338644154": {
+      "links": {},
+      "events": {
+        "0xb6ced7e295ffd06d19f45bd872b3bd3fd172b1ba53b17ce0543c276d06f5a422": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_beneficary",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "int256"
+            }
+          ],
+          "name": "MintReputation",
+          "type": "event"
+        },
+        "0x5b67d9e8a65e26fe864acdc9b226edde7266fd5a111ed0eba1a86fbe34a827b5": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_beneficary",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "int256"
+            }
+          ],
+          "name": "MintTokens",
+          "type": "event"
+        },
+        "0x546816e99403df442acb68ef69562682a50762c20a3fb6b472f7af9923736cfc": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_scheme",
+              "type": "address"
+            }
+          ],
+          "name": "RegisterScheme",
+          "type": "event"
+        },
+        "0x10bb2cf04cb8b902a8e736d494f1a51003be6d4b16ef6fb95ce62c38445023bf": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_scheme",
+              "type": "address"
+            }
+          ],
+          "name": "UnregisterScheme",
+          "type": "event"
+        },
+        "0xc25da2e2542cbb471287f87f4a6074f50e01f9521f77c4fec3904cc1e2bfd857": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_action",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_param",
+              "type": "uint256"
+            }
+          ],
+          "name": "GenericAction",
+          "type": "event"
+        },
+        "0xda35e091786fbaaace32084910404a0e3a14f22a7645a4c3d0fec2c6731e3c34": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amountInWei",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "address"
+            }
+          ],
+          "name": "SendEther",
+          "type": "event"
+        },
+        "0xd4c08afec48fd2cbe49032dc89d3b388b7a4e4f0563a1fdccd73339beb025aa1": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenTransfer",
+          "type": "event"
+        },
+        "0x283faba4b8dcfe263728666be500623fdf5ae89ac78e40952fe2493f918ed62c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_from",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenTransferFrom",
+          "type": "event"
+        },
+        "0x5cda63dee3dca234a7ff99530838d4375718e5a398a4879f89119d92921fc693": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_spender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenApprove",
+          "type": "event"
+        },
+        "0x8de50b029c9110b478442bc5e2ff0fb5e690e58499fa81ebd1a344dd1a990499": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_token",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "TokenDisapprove",
+          "type": "event"
+        },
+        "0xfbf15a1bae5e021d024841007b692b167afd2a281a4ff0b44f47387eb388205c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Fallback",
+          "type": "event"
+        }
+      },
+      "updated_at": 1505338673153
+    },
+    "1505499551403": {
+      "links": {},
+      "events": {
+        "0xb6ced7e295ffd06d19f45bd872b3bd3fd172b1ba53b17ce0543c276d06f5a422": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_beneficiary",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "int256"
+            }
+          ],
+          "name": "MintReputation",
+          "type": "event"
+        },
+        "0x21f9c9a1a1f9a311a50f15fec5c1faa9e21fc9edf964f0fdecba5bd490484c5e": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_beneficiary",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "MintTokens",
+          "type": "event"
+        },
+        "0x546816e99403df442acb68ef69562682a50762c20a3fb6b472f7af9923736cfc": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_scheme",
+              "type": "address"
+            }
+          ],
+          "name": "RegisterScheme",
+          "type": "event"
+        },
+        "0x10bb2cf04cb8b902a8e736d494f1a51003be6d4b16ef6fb95ce62c38445023bf": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_scheme",
+              "type": "address"
+            }
+          ],
+          "name": "UnregisterScheme",
+          "type": "event"
+        },
+        "0xa780f470f73c5b728f451407660985d55be1b49386ec1a65a0b20d09f12d3246": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_action",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_params",
+              "type": "bytes32[]"
+            }
+          ],
+          "name": "GenericAction",
+          "type": "event"
+        },
+        "0xda35e091786fbaaace32084910404a0e3a14f22a7645a4c3d0fec2c6731e3c34": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amountInWei",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "address"
+            }
+          ],
+          "name": "SendEther",
+          "type": "event"
+        },
+        "0xd4c08afec48fd2cbe49032dc89d3b388b7a4e4f0563a1fdccd73339beb025aa1": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenTransfer",
+          "type": "event"
+        },
+        "0x283faba4b8dcfe263728666be500623fdf5ae89ac78e40952fe2493f918ed62c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_from",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenTransferFrom",
+          "type": "event"
+        },
+        "0x5cda63dee3dca234a7ff99530838d4375718e5a398a4879f89119d92921fc693": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_spender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenApprove",
+          "type": "event"
+        },
+        "0x8fdb69e6f496c598f5c3e04a02081a6f5ab0096b70a94a75b6b6c61b1fe4c9f8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_globalconstraint",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_params",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogAddGlobalConstraint",
+          "type": "event"
+        }
+      },
+      "updated_at": 1505499742156
+    },
+    "1505507344148": {
+      "links": {},
+      "events": {
+        "0xb6ced7e295ffd06d19f45bd872b3bd3fd172b1ba53b17ce0543c276d06f5a422": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_beneficiary",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "int256"
+            }
+          ],
+          "name": "MintReputation",
+          "type": "event"
+        },
+        "0x21f9c9a1a1f9a311a50f15fec5c1faa9e21fc9edf964f0fdecba5bd490484c5e": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_beneficiary",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "MintTokens",
+          "type": "event"
+        },
+        "0x546816e99403df442acb68ef69562682a50762c20a3fb6b472f7af9923736cfc": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_scheme",
+              "type": "address"
+            }
+          ],
+          "name": "RegisterScheme",
+          "type": "event"
+        },
+        "0x10bb2cf04cb8b902a8e736d494f1a51003be6d4b16ef6fb95ce62c38445023bf": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_scheme",
+              "type": "address"
+            }
+          ],
+          "name": "UnregisterScheme",
+          "type": "event"
+        },
+        "0xa780f470f73c5b728f451407660985d55be1b49386ec1a65a0b20d09f12d3246": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_action",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_params",
+              "type": "bytes32[]"
+            }
+          ],
+          "name": "GenericAction",
+          "type": "event"
+        },
+        "0xda35e091786fbaaace32084910404a0e3a14f22a7645a4c3d0fec2c6731e3c34": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amountInWei",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "address"
+            }
+          ],
+          "name": "SendEther",
+          "type": "event"
+        },
+        "0xd4c08afec48fd2cbe49032dc89d3b388b7a4e4f0563a1fdccd73339beb025aa1": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenTransfer",
+          "type": "event"
+        },
+        "0x283faba4b8dcfe263728666be500623fdf5ae89ac78e40952fe2493f918ed62c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_from",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenTransferFrom",
+          "type": "event"
+        },
+        "0x5cda63dee3dca234a7ff99530838d4375718e5a398a4879f89119d92921fc693": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_spender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenApprove",
+          "type": "event"
+        },
+        "0x8fdb69e6f496c598f5c3e04a02081a6f5ab0096b70a94a75b6b6c61b1fe4c9f8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_globalconstraint",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_params",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogAddGlobalConstraint",
+          "type": "event"
+        }
+      },
+      "updated_at": 1505507375263
+    },
+    "1505507549346": {
+      "links": {},
+      "events": {
+        "0xb6ced7e295ffd06d19f45bd872b3bd3fd172b1ba53b17ce0543c276d06f5a422": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_beneficiary",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "int256"
+            }
+          ],
+          "name": "MintReputation",
+          "type": "event"
+        },
+        "0x21f9c9a1a1f9a311a50f15fec5c1faa9e21fc9edf964f0fdecba5bd490484c5e": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_beneficiary",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "MintTokens",
+          "type": "event"
+        },
+        "0x546816e99403df442acb68ef69562682a50762c20a3fb6b472f7af9923736cfc": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_scheme",
+              "type": "address"
+            }
+          ],
+          "name": "RegisterScheme",
+          "type": "event"
+        },
+        "0x10bb2cf04cb8b902a8e736d494f1a51003be6d4b16ef6fb95ce62c38445023bf": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_scheme",
+              "type": "address"
+            }
+          ],
+          "name": "UnregisterScheme",
+          "type": "event"
+        },
+        "0xa780f470f73c5b728f451407660985d55be1b49386ec1a65a0b20d09f12d3246": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_action",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_params",
+              "type": "bytes32[]"
+            }
+          ],
+          "name": "GenericAction",
+          "type": "event"
+        },
+        "0xda35e091786fbaaace32084910404a0e3a14f22a7645a4c3d0fec2c6731e3c34": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amountInWei",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "address"
+            }
+          ],
+          "name": "SendEther",
+          "type": "event"
+        },
+        "0xd4c08afec48fd2cbe49032dc89d3b388b7a4e4f0563a1fdccd73339beb025aa1": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenTransfer",
+          "type": "event"
+        },
+        "0x283faba4b8dcfe263728666be500623fdf5ae89ac78e40952fe2493f918ed62c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_from",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenTransferFrom",
+          "type": "event"
+        },
+        "0x5cda63dee3dca234a7ff99530838d4375718e5a398a4879f89119d92921fc693": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_spender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenApprove",
+          "type": "event"
+        },
+        "0x8fdb69e6f496c598f5c3e04a02081a6f5ab0096b70a94a75b6b6c61b1fe4c9f8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_globalconstraint",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_params",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogAddGlobalConstraint",
+          "type": "event"
+        }
+      },
+      "updated_at": 1505507562167
+    }
+  },
+  "schema_version": "0.0.5",
+  "updated_at": 1510700033711
+}

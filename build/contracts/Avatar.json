@@ -1,0 +1,819 @@
+{
+  "contract_name": "Avatar",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "orgName",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_token",
+          "type": "address"
+        },
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "tokenDisapprove",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_action",
+          "type": "address"
+        },
+        {
+          "name": "_params",
+          "type": "bytes32[]"
+        }
+      ],
+      "name": "genericAction",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_externalToken",
+          "type": "address"
+        },
+        {
+          "name": "_spender",
+          "type": "address"
+        },
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "externalTokenApprove",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "nativeReputation",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_externalToken",
+          "type": "address"
+        },
+        {
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "externalTokenTransferFrom",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_amountInWei",
+          "type": "uint256"
+        },
+        {
+          "name": "_to",
+          "type": "address"
+        }
+      ],
+      "name": "sendEther",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_externalToken",
+          "type": "address"
+        },
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "externalTokenTransfer",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "nativeToken",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_orgName",
+          "type": "bytes32"
+        },
+        {
+          "name": "_nativeToken",
+          "type": "address"
+        },
+        {
+          "name": "_nativeReputation",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "constructor"
+    },
+    {
+      "payable": true,
+      "type": "fallback"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_action",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_params",
+          "type": "bytes32[]"
+        }
+      ],
+      "name": "GenericAction",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "_amountInWei",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "name": "_to",
+          "type": "address"
+        }
+      ],
+      "name": "SendEther",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_externalToken",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "ExternalTokenTransfer",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_externalToken",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "ExternalTokenTransferFrom",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_externalToken",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_spender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "ExternalTokenApprove",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "_token",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "TokenDisapprove",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "ReceiveEther",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x6060604052341561000f57600080fd5b6040516060806109eb8339810160405280805191906020018051919060200180519150505b5b60008054600160a060020a03191633600160a060020a03161790555b600183905560028054600160a060020a03808516600160a060020a03199283161790925560038054928416929091169190911790555b5050505b6109518061009a6000396000f300606060405236156100935763ffffffff60e060020a6000350416631386dc2d81146100d45780633df4062e146100f95780636ce15a541461012f57806379c6ad9e146101a057806389ae1c90146101dc5780638da5cb5b1461020b578063b756d5a21461023a578063cb16d4a21461027c578063dab0efff146102b2578063e1758bd8146102ee578063f2fde38b1461031d575b5b33600160a060020a03167ff32a9f77675fd5917534c7746608fd3e309eac68fbdcbf5925e24ca97a7043963460405190815260200160405180910390a25b005b34156100df57600080fd5b6100e761033e565b60405190815260200160405180910390f35b341561010457600080fd5b61011b600160a060020a0360043516602435610344565b604051901515815260200160405180910390f35b341561013a57600080fd5b61011b60048035600160a060020a031690604460248035908101908301358060208082020160405190810160405280939291908181526020018383602002808284375094965061043595505050505050565b604051901515815260200160405180910390f35b34156101ab57600080fd5b61011b600160a060020a036004358116906024351660443561052d565b604051901515815260200160405180910390f35b34156101e757600080fd5b6101ef61061b565b604051600160a060020a03909116815260200160405180910390f35b341561021657600080fd5b6101ef61062a565b604051600160a060020a03909116815260200160405180910390f35b341561024557600080fd5b61011b600160a060020a0360043581169060243581169060443516606435610639565b604051901515815260200160405180910390f35b341561028757600080fd5b61011b600435600160a060020a0360243516610741565b604051901515815260200160405180910390f35b34156102bd57600080fd5b61011b600160a060020a03600435811690602435166044356107d6565b604051901515815260200160405180910390f35b34156102f957600080fd5b6101ef6108be565b604051600160a060020a03909116815260200160405180910390f35b341561032857600080fd5b6100d2600160a060020a03600435166108cd565b005b60015481565b6000805433600160a060020a0390811691161461036057600080fd5b82600160a060020a03166323b872dd33338560006040516020015260405160e060020a63ffffffff8616028152600160a060020a0393841660048201529190921660248201526044810191909152606401602060405180830381600087803b15156103ca57600080fd5b6102c65a03f115156103db57600080fd5b50505060405180519050507fd23e88ecf1a38ccd3a7b62b200c5f7975695cab040e26939826be9dc15f573198383604051600160a060020a03909216825260208201526040908101905180910390a15060015b5b92915050565b6000805433600160a060020a0390811691161461045157600080fd5b82600160a060020a03166040517f616374696f6e2875696e743235365b5d290000000000000000000000000000008152601101604051809103902060e060020a9004836040518263ffffffff1660e060020a02815260040180828051906020019060200280838360005b838110156104d45780820151818401525b6020016104bb565b505050509050019150506000604051808303818661646e5a03f492505050905061042e565b838110156105125780820151818401525b6020016104f9565b505050509050019250505060405180910390a25b5b92915050565b6000805433600160a060020a0390811691161461054957600080fd5b83600160a060020a031663095ea7b3848460006040516020015260405160e060020a63ffffffff8516028152600160a060020a0390921660048301526024820152604401602060405180830381600087803b15156105a657600080fd5b6102c65a03f115156105b757600080fd5b50505060405180515050600160a060020a0384167f15027ced8d0b6b382affbb51de0e1f48bb24ac55be01ca51537a5f9c4aeb35aa8484604051600160a060020a03909216825260208201526040908101905180910390a25060015b5b9392505050565b600354600160a060020a031681565b600054600160a060020a031681565b6000805433600160a060020a0390811691161461065557600080fd5b84600160a060020a03166323b872dd85858560006040516020015260405160e060020a63ffffffff8616028152600160a060020a0393841660048201529190921660248201526044810191909152606401602060405180830381600087803b15156106bf57600080fd5b6102c65a03f115156106d057600080fd5b50505060405180515050600160a060020a0385167f179c15de44aa7ab84896301974328eb40b5b40fe01cfe0fee2924ea712c3e843858585604051600160a060020a039384168152919092166020820152604080820192909252606001905180910390a25060015b5b949350505050565b6000805433600160a060020a0390811691161461075d57600080fd5b600160a060020a03821683156108fc0284604051600060405180830381858888f19350505050151561078e57600080fd5b81600160a060020a03167f22fca66666089f39bc900dd6605b489df4aae6260cc8ea8257594cfb8c84926c8460405190815260200160405180910390a25060015b5b92915050565b6000805433600160a060020a039081169116146107f257600080fd5b83600160a060020a031663a9059cbb848460006040516020015260405160e060020a63ffffffff8516028152600160a060020a0390921660048301526024820152604401602060405180830381600087803b151561084f57600080fd5b6102c65a03f1151561086057600080fd5b505050604051805190505082600160a060020a031684600160a060020a03167f49dc2a60d2599a7b6932d78fb694c30dfc596fe4e0282b5d0fd184b52472c04d8460405190815260200160405180910390a35060015b5b9392505050565b600254600160a060020a031681565b60005433600160a060020a039081169116146108e857600080fd5b600160a060020a03811615610920576000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0383161790555b5b5b505600a165627a7a7230582043096cb60a892daa4e1b4cb1f3ee6f4709fe704fdefe3659f5e888607013ba900029",
+  "networks": {
+    "1505499551403": {
+      "links": {},
+      "events": {
+        "0x8518530cc6bc186721ab2fc226031ca054c8484893d8b0c7faab65a58aac238d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_action",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_params",
+              "type": "bytes32[]"
+            }
+          ],
+          "name": "GenericAction",
+          "type": "event"
+        },
+        "0x22fca66666089f39bc900dd6605b489df4aae6260cc8ea8257594cfb8c84926c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_amountInWei",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "address"
+            }
+          ],
+          "name": "SendEther",
+          "type": "event"
+        },
+        "0x49dc2a60d2599a7b6932d78fb694c30dfc596fe4e0282b5d0fd184b52472c04d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenTransfer",
+          "type": "event"
+        },
+        "0x179c15de44aa7ab84896301974328eb40b5b40fe01cfe0fee2924ea712c3e843": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_from",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenTransferFrom",
+          "type": "event"
+        },
+        "0x15027ced8d0b6b382affbb51de0e1f48bb24ac55be01ca51537a5f9c4aeb35aa": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_spender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenApprove",
+          "type": "event"
+        },
+        "0xd23e88ecf1a38ccd3a7b62b200c5f7975695cab040e26939826be9dc15f57319": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_token",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "TokenDisapprove",
+          "type": "event"
+        },
+        "0xf32a9f77675fd5917534c7746608fd3e309eac68fbdcbf5925e24ca97a704396": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ReceiveEther",
+          "type": "event"
+        }
+      },
+      "updated_at": 1505499742149
+    },
+    "1505507344148": {
+      "links": {},
+      "events": {
+        "0x8518530cc6bc186721ab2fc226031ca054c8484893d8b0c7faab65a58aac238d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_action",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_params",
+              "type": "bytes32[]"
+            }
+          ],
+          "name": "GenericAction",
+          "type": "event"
+        },
+        "0x22fca66666089f39bc900dd6605b489df4aae6260cc8ea8257594cfb8c84926c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_amountInWei",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "address"
+            }
+          ],
+          "name": "SendEther",
+          "type": "event"
+        },
+        "0x49dc2a60d2599a7b6932d78fb694c30dfc596fe4e0282b5d0fd184b52472c04d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenTransfer",
+          "type": "event"
+        },
+        "0x179c15de44aa7ab84896301974328eb40b5b40fe01cfe0fee2924ea712c3e843": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_from",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenTransferFrom",
+          "type": "event"
+        },
+        "0x15027ced8d0b6b382affbb51de0e1f48bb24ac55be01ca51537a5f9c4aeb35aa": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_spender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenApprove",
+          "type": "event"
+        },
+        "0xd23e88ecf1a38ccd3a7b62b200c5f7975695cab040e26939826be9dc15f57319": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_token",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "TokenDisapprove",
+          "type": "event"
+        },
+        "0xf32a9f77675fd5917534c7746608fd3e309eac68fbdcbf5925e24ca97a704396": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ReceiveEther",
+          "type": "event"
+        }
+      },
+      "updated_at": 1505507375255
+    },
+    "1505507549346": {
+      "links": {},
+      "events": {
+        "0x8518530cc6bc186721ab2fc226031ca054c8484893d8b0c7faab65a58aac238d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_action",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_params",
+              "type": "bytes32[]"
+            }
+          ],
+          "name": "GenericAction",
+          "type": "event"
+        },
+        "0x22fca66666089f39bc900dd6605b489df4aae6260cc8ea8257594cfb8c84926c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_amountInWei",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "address"
+            }
+          ],
+          "name": "SendEther",
+          "type": "event"
+        },
+        "0x49dc2a60d2599a7b6932d78fb694c30dfc596fe4e0282b5d0fd184b52472c04d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenTransfer",
+          "type": "event"
+        },
+        "0x179c15de44aa7ab84896301974328eb40b5b40fe01cfe0fee2924ea712c3e843": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_from",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenTransferFrom",
+          "type": "event"
+        },
+        "0x15027ced8d0b6b382affbb51de0e1f48bb24ac55be01ca51537a5f9c4aeb35aa": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_externalToken",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_spender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ExternalTokenApprove",
+          "type": "event"
+        },
+        "0xd23e88ecf1a38ccd3a7b62b200c5f7975695cab040e26939826be9dc15f57319": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_token",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "TokenDisapprove",
+          "type": "event"
+        },
+        "0xf32a9f77675fd5917534c7746608fd3e309eac68fbdcbf5925e24ca97a704396": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ReceiveEther",
+          "type": "event"
+        }
+      },
+      "updated_at": 1505507562173
+    }
+  },
+  "schema_version": "0.0.5",
+  "updated_at": 1510700033710
+}

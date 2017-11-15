@@ -1,0 +1,731 @@
+{
+  "contract_name": "SimpleVote",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "parameters",
+      "outputs": [
+        {
+          "name": "reputationSystem",
+          "type": "address"
+        },
+        {
+          "name": "absPrecReq",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_proposalId",
+          "type": "bytes32"
+        },
+        {
+          "name": "_voter",
+          "type": "address"
+        }
+      ],
+      "name": "voteInfo",
+      "outputs": [
+        {
+          "name": "",
+          "type": "int256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_proposalId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "voteStatus",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256[3]"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "proposals",
+      "outputs": [
+        {
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "name": "avatar",
+          "type": "address"
+        },
+        {
+          "name": "executable",
+          "type": "address"
+        },
+        {
+          "name": "paramsHash",
+          "type": "bytes32"
+        },
+        {
+          "name": "yes",
+          "type": "uint256"
+        },
+        {
+          "name": "no",
+          "type": "uint256"
+        },
+        {
+          "name": "opened",
+          "type": "bool"
+        },
+        {
+          "name": "ended",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "proposalId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "cancelProposal",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_reputationSystem",
+          "type": "address"
+        },
+        {
+          "name": "_absPrecReq",
+          "type": "uint256"
+        }
+      ],
+      "name": "getParametersHash",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_proposalId",
+          "type": "bytes32"
+        },
+        {
+          "name": "_yes",
+          "type": "bool"
+        },
+        {
+          "name": "_voter",
+          "type": "address"
+        }
+      ],
+      "name": "vote",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_proposalId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "executeProposal",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_paramsHash",
+          "type": "bytes32"
+        },
+        {
+          "name": "_avatar",
+          "type": "address"
+        },
+        {
+          "name": "_executable",
+          "type": "address"
+        }
+      ],
+      "name": "propose",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_reputationSystem",
+          "type": "address"
+        },
+        {
+          "name": "_absPrecReq",
+          "type": "uint256"
+        }
+      ],
+      "name": "setParameters",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_proposalId",
+          "type": "bytes32"
+        },
+        {
+          "name": "_voter",
+          "type": "address"
+        }
+      ],
+      "name": "cancelVote",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "_proposalId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_paramsHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "NewProposal",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "_proposalId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "CancelProposal",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "_proposalId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "name": "_yes",
+          "type": "bool"
+        }
+      ],
+      "name": "EndProposal",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "_voter",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_proposalId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "name": "_yes",
+          "type": "bool"
+        },
+        {
+          "indexed": false,
+          "name": "_reputation",
+          "type": "uint256"
+        }
+      ],
+      "name": "VoteProposal",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "_voter",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_proposalId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "CancelVoting",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x6060604052341561000f57600080fd5b5b5b5b610f89806100216000396000f300606060405236156100935763ffffffff60e060020a600035041663025068048114610098578063119ce91b146100d05780631290b2131461010457806332ed5b121461015357806337376ca8146101be57806378fc063c146101e8578063969f1d1a1461021c578063980ff6c614610257578063b8752ba314610281578063c4198161146102bb578063e44d703e146102ef575b600080fd5b34156100a357600080fd5b6100ae600435610313565b604051600160a060020a03909216825260208201526040908101905180910390f35b34156100db57600080fd5b6100f2600435600160a060020a0360243516610338565b60405190815260200160405180910390f35b341561010f57600080fd5b61011a600435610365565b6040518082606080838360005b838110156101405780820151818401525b602001610127565b5050505090500191505060405180910390f35b341561015e57600080fd5b6101696004356103d0565b604051600160a060020a0398891681529688166020880152949096166040808701919091526060860193909352608085019190915260a084015292151560c0830152151560e082015261010001905180910390f35b34156101c957600080fd5b6101d4600435610428565b604051901515815260200160405180910390f35b34156101f357600080fd5b6100f2600160a060020a03600435166024356104e3565b60405190815260200160405180910390f35b341561022757600080fd5b6101d46004356024351515600160a060020a0360443516610520565b604051901515815260200160405180910390f35b341561026257600080fd5b6101d4600435610785565b604051901515815260200160405180910390f35b341561028c57600080fd5b6100f2600435600160a060020a0360243581169060443516610b78565b60405190815260200160405180910390f35b34156102c657600080fd5b6100f2600160a060020a0360043516602435610d48565b60405190815260200160405180910390f35b34156102fa57600080fd5b610311600435600160a060020a0360243516610da0565b005b60016020819052600091825260409091208054910154600160a060020a039091169082565b6000828152600260209081526040808320600160a060020a03851684526006019091529020545b92915050565b61036d610ef2565b600082815260026020526040812060048101546005820154600790920154909290610100900460ff166103a15760006103a4565b60015b60ff1690506060604051908101604052808481526020018381526020018281525093505b505050919050565b60026020819052600091825260409091208054600182015492820154600383015460048401546005850154600790950154600160a060020a039485169685169593909416939192909160ff8082169161010090041688565b60008181526002602052604081205433600160a060020a0390811691161461044f57600080fd5b60008281526002602081905260408083208054600160a060020a0319908116825560018201805482169055928101805490931690925560038201839055600482018390556005820192909255600701805461ffff191690557fb1268f2534fc554f8ff22853272822d570aa84a7dfbc7e581b1a766ae8c386619083905190815260200160405180910390a15060015b919050565b60008282604051600160a060020a03929092166c010000000000000000000000000282526014820152603401604051809103902090505b92915050565b60008381526002602052604081206007810154829060ff16151561054357600080fd5b6007820154610100900460ff161561055a57600080fd5b815433600160a060020a03908116911614610573573393505b600160a060020a0384166000908152600683016020526040902054156106095760018515151480156105bd5750600160a060020a0384166000908152600683016020526040812054135b156105cb576000925061077c565b841580156105f15750600160a060020a0384166000908152600683016020526040812054125b156105ff576000925061077c565b6106098685610da0565b5b600382015460009081526001602052604080822054600160a060020a03169163db89c04491879190516020015260405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b151561067557600080fd5b6102c65a03f1151561068657600080fd5b505050604051805191505084156106d45760048201546106ad90829063ffffffff610ec116565b6004830155600160a060020a03841660009081526006830160205260409020819055610711565b60058201546106ea90829063ffffffff610ec116565b6005830155600160a060020a03841660009081526006830160205260409020600019820290555b7f40ee33b51039e846dcb69e2be06e4d8cc2840848ee529dd540e41943f5c47f7584878784604051600160a060020a0390941684526020840192909252151560408084019190915260608301919091526080909101905180910390a161077686610785565b50600192505b50509392505050565b600061078f610f19565b6000838152600260205260408082208291610100905190810160409081528254600160a060020a039081168352600184015481166020840152600284015416908201526003820154606082015260048201546080820152600582015460a082015260079091015460ff808216151560c084015261010090910416151560e08201908152909350511561082057600080fd5b600160008460600151815260208101919091526040908101600090812054600160a060020a0316916318160ddd919051602001526040518163ffffffff1660e060020a028152600401602060405180830381600087803b151561088257600080fd5b6102c65a03f1151561089357600080fd5b5050506040518051905091506001600084606001518152602081019190915260400160002060010154905060648282025b04836080015111806108df575060648282025b048360a00151115b15610b6b57600160e08401526000858152600260205260409020839081518154600160a060020a031916600160a060020a03919091161781556020820151600182018054600160a060020a031916600160a060020a03929092169190911790556040820151600282018054600160a060020a031916600160a060020a0392909216919091179055606082015160038201556080820151816004015560a0820151816005015560c082015160078201805460ff191691151591909117905560e0820151600790910180549115156101000261ff00199092169190911790555060a083015183608001511115610a9a578260400151600160a060020a031663310ce4e2868560200151600160006040516020015260405160e060020a63ffffffff86160281526004810193909352600160a060020a0390911660248301526044820152606401602060405180830381600087803b1515610a3c57600080fd5b6102c65a03f11515610a4d57600080fd5b50505060405180519050507fe61db78412c96c3eb344d43de580a44d3ebfe35913f2526b23094ae0cd357581856001604051918252151560208201526040908101905180910390a1610b62565b8260400151600160a060020a031663310ce4e28685602001516000806040516020015260405160e060020a63ffffffff86160281526004810193909352600160a060020a0390911660248301526044820152606401602060405180830381600087803b1515610b0857600080fd5b6102c65a03f11515610b1957600080fd5b50505060405180519050507fe61db78412c96c3eb344d43de580a44d3ebfe35913f2526b23094ae0cd357581856000604051918252151560208201526040908101905180910390a15b600193506103c8565b600093505b505050919050565b600080610b83610f19565b600086815260016020526040902054600160a060020a03161515610ba657600080fd5b30600054604051600160a060020a03929092166c010000000000000000000000000282526014820152603401604051908190039020600080546001908101825560608401899052600160a060020a0380891660208087019190915288821660408088019190915233909216865260c086019290925283835260029091529020909250819081518154600160a060020a031916600160a060020a03919091161781556020820151600182018054600160a060020a031916600160a060020a03929092169190911790556040820151600282018054600160a060020a031916600160a060020a0392909216919091179055606082015160038201556080820151816004015560a0820151816005015560c082015160078201805460ff191691151591909117905560e0820151600790910180549115156101000261ff0019909216919091179055507f62d4505eb4c65b6e6eeb45693dfec00ef1821439011a876cef34dbccde68b705823388604051928352600160a060020a0390911660208301526040808301919091526060909101905180910390a18192505b50509392505050565b6000806064831115610d5957600080fd5b610d6384846104e3565b60008181526001602081905260409091209081018590558054600160a060020a031916600160a060020a03871617905591508190505b5092915050565b6000828152600260205260408120600781015490919060ff161515610dc457600080fd5b6007820154610100900460ff1615610ddb57600080fd5b815433600160a060020a03908116911614610df4573392505b50600160a060020a038216600090815260068201602052604081205490811315610e37576004820154610e2d908263ffffffff610edb16565b6004830155610e56565b6005820154610e5090600019830263ffffffff610edb16565b60058301555b600160a060020a0383166000908152600683016020526040808220919091557f5a97d4fe1199d59e766497080736dc5d7c7c122b2d88f8f714a88b2bff25921f908490869051600160a060020a03909216825260208201526040908101905180910390a15b50505050565b600082820183811015610ed057fe5b8091505b5092915050565b600082821115610ee757fe5b508082035b92915050565b60606040519081016040526003815b6000815260200190600190039081610f015790505090565b6101006040519081016040908152600080835260208301819052908201819052606082018190526080820181905260a0820181905260c0820181905260e0820152905600a165627a7a723058202ae4272298ab350b5dfea5e97a200fd6212350ac618e7bda648241016fde94e60029",
+  "networks": {
+    "1505338644154": {
+      "events": {
+        "0x2fa055ed2a16bf675cb77388be42cc263fd4f3feaac282dbcce8ae28691c960b": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_proposalId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "NewProposal",
+          "type": "event"
+        },
+        "0x40ee33b51039e846dcb69e2be06e4d8cc2840848ee529dd540e41943f5c47f75": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_voter",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_proposalId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_yes",
+              "type": "bool"
+            },
+            {
+              "indexed": false,
+              "name": "_reputation",
+              "type": "uint256"
+            }
+          ],
+          "name": "VoteProposal",
+          "type": "event"
+        },
+        "0xcc0c35dc01446e741be6aeeeb22693a96b4b42887e92d84a17181687b6a41818": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_proposalId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "CloseProposal",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xca72d2dc659220f9a17445b0eb109e6d9c511028",
+      "updated_at": 1505338673147
+    },
+    "1505499551403": {
+      "events": {
+        "0x62d4505eb4c65b6e6eeb45693dfec00ef1821439011a876cef34dbccde68b705": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_proposalId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_owner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_paramsHash",
+              "type": "bytes32"
+            }
+          ],
+          "name": "NewProposal",
+          "type": "event"
+        },
+        "0xb1268f2534fc554f8ff22853272822d570aa84a7dfbc7e581b1a766ae8c38661": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_proposalId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "CancelProposal",
+          "type": "event"
+        },
+        "0xe61db78412c96c3eb344d43de580a44d3ebfe35913f2526b23094ae0cd357581": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_proposalId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_yes",
+              "type": "bool"
+            }
+          ],
+          "name": "EndProposal",
+          "type": "event"
+        },
+        "0x40ee33b51039e846dcb69e2be06e4d8cc2840848ee529dd540e41943f5c47f75": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_voter",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_proposalId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_yes",
+              "type": "bool"
+            },
+            {
+              "indexed": false,
+              "name": "_reputation",
+              "type": "uint256"
+            }
+          ],
+          "name": "VoteProposal",
+          "type": "event"
+        },
+        "0x5a97d4fe1199d59e766497080736dc5d7c7c122b2d88f8f714a88b2bff25921f": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_voter",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_proposalId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "CancelVoting",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xcab90983463aeb28e733527a910976bddb6df7ff",
+      "updated_at": 1505499742161
+    },
+    "1505507344148": {
+      "events": {
+        "0x62d4505eb4c65b6e6eeb45693dfec00ef1821439011a876cef34dbccde68b705": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_proposalId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_owner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_paramsHash",
+              "type": "bytes32"
+            }
+          ],
+          "name": "NewProposal",
+          "type": "event"
+        },
+        "0xb1268f2534fc554f8ff22853272822d570aa84a7dfbc7e581b1a766ae8c38661": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_proposalId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "CancelProposal",
+          "type": "event"
+        },
+        "0xe61db78412c96c3eb344d43de580a44d3ebfe35913f2526b23094ae0cd357581": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_proposalId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_yes",
+              "type": "bool"
+            }
+          ],
+          "name": "EndProposal",
+          "type": "event"
+        },
+        "0x40ee33b51039e846dcb69e2be06e4d8cc2840848ee529dd540e41943f5c47f75": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_voter",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_proposalId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_yes",
+              "type": "bool"
+            },
+            {
+              "indexed": false,
+              "name": "_reputation",
+              "type": "uint256"
+            }
+          ],
+          "name": "VoteProposal",
+          "type": "event"
+        },
+        "0x5a97d4fe1199d59e766497080736dc5d7c7c122b2d88f8f714a88b2bff25921f": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_voter",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_proposalId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "CancelVoting",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xcab90983463aeb28e733527a910976bddb6df7ff",
+      "updated_at": 1505507375267
+    },
+    "1505507549346": {
+      "events": {
+        "0x62d4505eb4c65b6e6eeb45693dfec00ef1821439011a876cef34dbccde68b705": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_proposalId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_owner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_paramsHash",
+              "type": "bytes32"
+            }
+          ],
+          "name": "NewProposal",
+          "type": "event"
+        },
+        "0xb1268f2534fc554f8ff22853272822d570aa84a7dfbc7e581b1a766ae8c38661": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_proposalId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "CancelProposal",
+          "type": "event"
+        },
+        "0xe61db78412c96c3eb344d43de580a44d3ebfe35913f2526b23094ae0cd357581": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_proposalId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_yes",
+              "type": "bool"
+            }
+          ],
+          "name": "EndProposal",
+          "type": "event"
+        },
+        "0x40ee33b51039e846dcb69e2be06e4d8cc2840848ee529dd540e41943f5c47f75": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_voter",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_proposalId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_yes",
+              "type": "bool"
+            },
+            {
+              "indexed": false,
+              "name": "_reputation",
+              "type": "uint256"
+            }
+          ],
+          "name": "VoteProposal",
+          "type": "event"
+        },
+        "0x5a97d4fe1199d59e766497080736dc5d7c7c122b2d88f8f714a88b2bff25921f": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_voter",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_proposalId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "CancelVoting",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x6f6fb92e53716d783aec979fc23b0195f5337208",
+      "updated_at": 1505507562178
+    }
+  },
+  "schema_version": "0.0.5",
+  "updated_at": 1510700033710
+}
