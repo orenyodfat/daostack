@@ -9476,7 +9476,151 @@
     "name": "solc",
     "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "42": {
+      "events": {
+        "0xa3d27ea573e5dd5b65d4850ff4d0cb2e1f8633c148ff9c19040e1b6c609c0386": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_avatar",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_proposalId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "_intVoteInterface",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_scheme",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_parametersHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_isRegistering",
+              "type": "bool"
+            },
+            {
+              "indexed": false,
+              "name": "_tokenFee",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_fee",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "_autoRegister",
+              "type": "bool"
+            }
+          ],
+          "name": "LogNewSchemeProposal",
+          "type": "event"
+        },
+        "0x68953fb1bf1b1aeeaaa5832742ffcb54530b6c3d63a03a1cb09a6b69dae43446": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_avatar",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_proposalId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "_intVoteInterface",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_scheme",
+              "type": "address"
+            }
+          ],
+          "name": "LogRemoveSchemeProposal",
+          "type": "event"
+        },
+        "0x1f9b6fe94f8389fd9936094c2246b3cb2b4392e59e72e915e70e6a08a47a1fb9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_avatar",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_proposalId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogProposalExecuted",
+          "type": "event"
+        },
+        "0xb5a530776d05e9cd7b304c6670fc54c08de4635c6c958237204d61215ca1ce34": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_avatar",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_proposalId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogProposalDeleted",
+          "type": "event"
+        },
+        "0xe9db4686ffcf478f0c9aa617f5d4f8ad2672b75414d7bea26368c6f65fb418df": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_avatar",
+              "type": "address"
+            }
+          ],
+          "name": "LogOrgRegistered",
+          "type": "event"
+        },
+        "0x3e49374a7db898f4d722a5bb59326d1c41e883a698b84df91f09ebe018070732": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "proposalId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogNewProposal",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xf663780eadebc5cfb8bd73c14b980a03b72f9037"
+    }
+  },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-11-22T00:50:28.601Z"
+  "updatedAt": "2017-11-27T23:03:36.023Z"
 }
